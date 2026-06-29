@@ -46,7 +46,8 @@ When JavaScript code runs:
 │  Execution Phase    │  ──> (Managed via Call Stack & Memory Heap)
 └─────────────────────┘
 
-
+```
+---
 ## Quick Example: Visualizing the Execution
 
 console.log("Start");
@@ -61,6 +62,8 @@ console.log("Promise Callback");
 
 console.log("End");
 
+---
+
 ## Execution Step-by-Step Chronology:
 
 1. console.log("Start") enters the Call Stack, prints Start, and pops off.
@@ -74,6 +77,8 @@ console.log("End");
 5. The Event Loop activates. It checks the high-priority Microtask Queue first, finds the Promise callback, pushes it onto the Call Stack, logs Promise Callback, and pops it off.
 
 6. The Microtask queue is empty. The Event Loop checks the Callback Queue, finds the setTimeout callback, pushes it onto the Call Stack, logs Timeout Callback, and pops it off.
+
+---
 
 ## Interview Follow-up Questions
 
