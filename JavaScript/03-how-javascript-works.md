@@ -23,27 +23,28 @@ When JavaScript code runs:
 ## Flow
 
 [ JavaScript Source Code ]
-│
-▼
-┌───────────┐
-│ Parser │ ──> (Tokenizes code into an Abstract Syntax Tree / AST)
-└───────────┘
-│
-▼
-┌───────────────┐
-│ Interpreter │ ──> (Quickly generates and starts executing Bytecode)
-└───────────────┘
-│ ▲
-│ (Profile) │ (Optimize hot code blocks)
-▼ │
-┌───────────────┐
-│ JIT Compiler │ ──> (Produces highly optimized Machine Code)
-└───────────────┘
-│
-▼
+           │
+           ▼
+     ┌───────────┐
+     │  Parser   │  ──> (Tokenizes code into an Abstract Syntax Tree / AST)
+     └───────────┘
+           │
+           ▼
+   ┌───────────────┐
+   │  Interpreter  │  ──> (Quickly generates and starts executing Bytecode)
+   └───────────────┘
+     │           ▲
+     │ (Profile) │ (Optimize hot code blocks)
+     ▼           │
+   ┌───────────────┐
+   │ JIT Compiler  │  ──> (Produces highly optimized Machine Code)
+   └───────────────┘
+           │
+           ▼
 ┌─────────────────────┐
-│ Execution Phase │ ──> (Managed via Call Stack & Memory Heap)
+│  Execution Phase    │  ──> (Managed via Call Stack & Memory Heap)
 └─────────────────────┘
+
 
 ## Quick Example: Visualizing the Execution
 
