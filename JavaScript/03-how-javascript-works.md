@@ -22,6 +22,7 @@ When JavaScript code runs:
 
 ## Flow
 
+```text
 [ JavaScript Source Code ]
            │
            ▼
@@ -62,17 +63,17 @@ console.log("End");
 
 ## Execution Step-by-Step Chronology:
 
-console.log("Start") enters the Call Stack, prints Start, and pops off.
+1. console.log("Start") enters the Call Stack, prints Start, and pops off.
 
-setTimeout enters the Call Stack. The runtime registers the timer web API, handles the 0ms delay instantly, and passes the anonymous arrow function to the Callback Queue. setTimeout pops off the stack.
+2. setTimeout enters the Call Stack. The runtime registers the timer web API, handles the 0ms delay instantly, and passes the anonymous arrow function to the Callback Queue. setTimeout pops off the stack.
 
-Promise.resolve().then(...) enters the Call Stack. The success callback is immediately queued into the Microtask Queue. The Promise logic pops off the stack.
+3. Promise.resolve().then(...) enters the Call Stack. The success callback is immediately queued into the Microtask Queue. The Promise logic pops off the stack.
 
-console.log("End") enters the Call Stack, prints End, and pops off. The script execution finishes; the Call Stack is now entirely empty.
+4. console.log("End") enters the Call Stack, prints End, and pops off. The script execution finishes; the Call Stack is now entirely empty.
 
-The Event Loop activates. It checks the high-priority Microtask Queue first, finds the Promise callback, pushes it onto the Call Stack, logs Promise Callback, and pops it off.
+5. The Event Loop activates. It checks the high-priority Microtask Queue first, finds the Promise callback, pushes it onto the Call Stack, logs Promise Callback, and pops it off.
 
-The Microtask queue is empty. The Event Loop checks the Callback Queue, finds the setTimeout callback, pushes it onto the Call Stack, logs Timeout Callback, and pops it off.
+6. The Microtask queue is empty. The Event Loop checks the Callback Queue, finds the setTimeout callback, pushes it onto the Call Stack, logs Timeout Callback, and pops it off.
 
 ## Interview Follow-up Questions
 
